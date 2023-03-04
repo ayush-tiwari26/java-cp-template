@@ -1,9 +1,11 @@
+import java.util.*;
 import java.io.*;
 import java.util.*;
 
+// Add sieve, pallen, reverse str, count hashmap
 public class Solution {
     static int SINGLE_INPUT=0;
-    static void solve(int T){
+    static void solve(int testcase){
         
     }
     public static void main(String[] args) {
@@ -67,4 +69,57 @@ class IO extends PrintWriter{
     // Print String Array
     public void print(String[] a){for(String i:a) System.out.print(i+" ");}
     public void println(String[] a){for(String i:a) System.out.print(i+" ");System.out.println();}
+}
+
+class Util{
+    public boolean[] getSieve(){
+        int n = 1001000;
+        boolean[] prime = new boolean[n];
+        Arrays.fill(prime, true);
+        prime[0]=false;
+        prime[1]=false;
+        for(int i=2;i<=Math.sqrt(n);i++){
+            int j=2*i;
+            while(j<n){
+                prime[j]=false;
+                j+=i;
+            }
+        }
+        return prime;
+    }
+    public boolean[] getSieve(int n){
+        n++;
+        boolean[] prime = new boolean[n];
+        Arrays.fill(prime, true);
+        prime[0]=false;
+        prime[1]=false;
+        for(int i=2;i<=Math.sqrt(n);i++){
+            int j=2*i;
+            while(j<n){
+                prime[j]=false;
+                j+=i;
+            }
+        }
+        return prime;
+    }
+    public boolean checkPallen(String s){
+        for(int i=0;i<s.length();i++) if(s.charAt(i)!=s.charAt(s.length()-i-1)) return false;
+        return true;
+    }
+    public HashMap<Integer, Integer> getCountMap(int[] arr){
+        HashMap<Integer, Integer> count = new HashMap<>();
+        for(int i:arr) count.put(i, count.getOrDefault(i, 0)+1);
+        return count;
+    }
+    public int[] getFreqArray(String s){
+        int n = 26;
+        for(char c:s.toCharArray()) 
+            if(!Character.isLowerCase(c)){
+                System.out.println("Util.getFrequencyArray(String s) : String is not in all lowercase.");
+                throw new Error("Util.getFrequencyArray(String s) : String is not in all lowercase.");
+        }
+        int[] freq = new int[26];
+        for(char c:s.toCharArray()) freq[c-'a']++;
+        return freq;
+    }
 }
