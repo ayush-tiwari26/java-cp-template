@@ -20,6 +20,7 @@ public class Solution {
         io.flush();
     }
     static IO io = new IO();
+    static Util ut = new Util();
 }
 
 class IO extends PrintWriter{
