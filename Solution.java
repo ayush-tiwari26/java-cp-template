@@ -23,7 +23,6 @@ public class Solution {
 }
 
 class IO extends PrintWriter{
-    // Inputs
     BufferedReader bf;
     StringTokenizer st;
     String token;
