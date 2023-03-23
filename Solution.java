@@ -2,12 +2,12 @@ import java.util.*;
 import java.io.*;
 import java.util.*;
 
-// Add sieve, pallen, reverse str, count hashmap
 public class Solution {
     static int SINGLE_INPUT=0;
     static void solve(int testcase){
         
     }
+
     public static void main(String[] args) {
         if(SINGLE_INPUT==1) solve(0);
         else{
@@ -27,22 +27,57 @@ class IO extends PrintWriter{
     BufferedReader bf;
     StringTokenizer st;
     String token;
-    public IO() {super(new BufferedOutputStream(System.out));
-        bf = new BufferedReader(new InputStreamReader(System.in));}
-    public IO(InputStream i) {super(new BufferedOutputStream(System.out));
-        bf = new BufferedReader(new InputStreamReader(i));}
-    public IO(InputStream i, OutputStream o) {super(new BufferedOutputStream(o));
-        bf = new BufferedReader(new InputStreamReader(i));}
-    public boolean hasMoreTokens() {return peekToken() != null;}
-    public int nextInt() {return Integer.parseInt(nextToken());}
-    public int[] nextArray(int n) {int[] a = new int[n]; for(int i=0;i<n;i++) a[i]=nextInt(); return a;}
-    public int[] nextIntArray(int n) {int[] a = new int[n]; for(int i=0;i<n;i++) a[i]=nextInt(); return a;}
-    public void nextIntArray(int[] a) {for(int i=0;i<a.length;i++) a[i]=nextInt();}
-    public double nextDouble() {return Double.parseDouble(nextToken());}
-    public long nextLong() {return Long.parseLong(nextToken());}
-    public long[] nextLongArray(int n) {long[] a = new long[n]; for(int i=0;i<n;i++) a[i]=nextLong(); return a;}
-    public String nextString() {return nextToken();}
-    public String next() {return nextToken();}
+    public IO() {
+        super(new BufferedOutputStream(System.out));
+        bf = new BufferedReader(new InputStreamReader(System.in));
+    }
+    public IO(InputStream i) {
+        super(new BufferedOutputStream(System.out));
+        bf = new BufferedReader(new InputStreamReader(i));
+    }
+    public IO(InputStream i, OutputStream o) {
+        super(new BufferedOutputStream(o));
+        bf = new BufferedReader(new InputStreamReader(i));
+    }
+    public boolean hasMoreTokens() {
+        return peekToken() != null;
+    }
+    public int nextInt() {
+        return Integer.parseInt(nextToken());
+    }
+    public int[] nextArray(int n) {
+        int[] a = new int[n]; 
+        for(int i=0;i<n;i++) 
+            a[i]=nextInt(); 
+        return a;
+    }
+    public int[] nextIntArray(int n) {
+        int[] a = new int[n]; 
+        for(int i=0;i<n;i++) 
+            a[i]=nextInt(); 
+        return a;
+    }
+    public void nextIntArray(int[] a) {
+        for(int i=0;i<a.length;i++) a[i]=nextInt();
+    }
+    public double nextDouble() {
+        return Double.parseDouble(nextToken());
+    }
+    public long nextLong() {
+        return Long.parseLong(nextToken());
+    }
+    public long[] nextLongArray(int n) {
+        long[] a = new long[n]; 
+        for(int i=0;i<n;i++) 
+            a[i]=nextLong(); 
+        return a;
+    }
+    public String nextString() {
+        return nextToken();
+    }
+    public String next() {
+        return nextToken();
+    }
     public String peekToken(){
         if (token == null) 
             try {
@@ -55,24 +90,32 @@ class IO extends PrintWriter{
             } catch (IOException e) { }
         return token;
     }
-    public String nextToken(){String ans = peekToken();
-        token = null;return ans;}
-    // Outputs
-    // all output methods in super class Printwriter
-    // overloaded some methods
-    // Print Int Array
-    public void print(int[] a){for(int i:a) System.out.print(i+" ");}
-    public void println(int[] a){for(int i:a) System.out.print(i+" "); System.out.println();}
-    // Print Long Array
-    public void print(long[] a){for(long i:a) System.out.print(i+" ");}
-    public void println(long[] a){for(long i:a) System.out.print(i+" "); System.out.println();}
-    // Print String Array
-    public void print(String[] a){for(String i:a) System.out.print(i+" ");}
-    public void println(String[] a){for(String i:a) System.out.print(i+" ");System.out.println();}
+    public String nextToken(){
+        String ans = peekToken(); token = null;
+        return ans;
+    }
+    public void print(int[] a){
+        for(int i:a) System.out.print(i+" ");
+    }
+    public void println(int[] a){
+        for(int i:a) System.out.print(i+" "); System.out.println();
+    }
+    public void print(long[] a){
+        for(long i:a) System.out.print(i+" ");
+    }
+    public void println(long[] a){
+        for(long i:a) System.out.print(i+" "); System.out.println();
+    }
+    public void print(String[] a){
+        for(String i:a) System.out.print(i+" ");
+    }
+    public void println(String[] a){
+        for(String i:a) System.out.print(i+" ");System.out.println();
+    }
 }
 
 class Util{
-    public boolean[] getSieve(){
+    public boolean[] getIsPrimeSieve(){
         int n = 1001000;
         boolean[] prime = new boolean[n];
         Arrays.fill(prime, true);
@@ -87,7 +130,7 @@ class Util{
         }
         return prime;
     }
-    public boolean[] getSieve(int n){
+    public boolean[] getIsPrimeSieve(int n){
         n++;
         boolean[] prime = new boolean[n];
         Arrays.fill(prime, true);
@@ -106,18 +149,16 @@ class Util{
         for(int i=0;i<s.length();i++) if(s.charAt(i)!=s.charAt(s.length()-i-1)) return false;
         return true;
     }
-    public HashMap<Integer, Integer> getCountMap(int[] arr){
+    public HashMap<Integer, Integer> getOccuranceCountMap(int[] arr){
         HashMap<Integer, Integer> count = new HashMap<>();
         for(int i:arr) count.put(i, count.getOrDefault(i, 0)+1);
         return count;
     }
-    public int[] getFreqArray(String s){
+    public int[] getFrequencyArray(String s){
         int n = 26;
-        for(char c:s.toCharArray()) 
-            if(!Character.isLowerCase(c)){
-                System.out.println("Util.getFrequencyArray(String s) : String is not in all lowercase.");
-                throw new Error("Util.getFrequencyArray(String s) : String is not in all lowercase.");
-        }
+        for(char c:s.toCharArray()) if(!Character.isLowerCase(c))        {System.out.println("Util.getFrequencyArray(String s) : String is not in all lowercase.");
+        throw new Error("Util.getFrequencyArray(String s) : String is not in all lowercase.");
+                                                                        }
         int[] freq = new int[26];
         for(char c:s.toCharArray()) freq[c-'a']++;
         return freq;
