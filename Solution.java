@@ -1,15 +1,14 @@
-import java.util.*;
 import java.io.*;
 import java.util.*;
 
 public class Solution {
-    static int SINGLE_INPUT=0;
-    static void solve(int testcase){
-        
+    static int SI=0;
+    static void solve(int tc){
+        //...
     }
 
     public static void main(String[] args) {
-        if(SINGLE_INPUT==1) solve(0);
+        if(SI==1) solve(0);
         else{
             int t = io.nextInt();
             for(int i=1;i<=t;i++){
@@ -95,22 +94,31 @@ class IO extends PrintWriter{
         return ans;
     }
     public void print(int[] a){
-        for(int i:a) System.out.print(i+" ");
+        for(int i:a) print(i+" ");
+        flush();
     }
     public void println(int[] a){
-        for(int i:a) System.out.print(i+" "); System.out.println();
+        for(int i:a) print(i+" "); 
+        println();
+        flush();
     }
     public void print(long[] a){
-        for(long i:a) System.out.print(i+" ");
+        for(long i:a) print(i+" ");
+        flush();
     }
     public void println(long[] a){
-        for(long i:a) System.out.print(i+" "); System.out.println();
+        for(long i:a) print(i+" ");
+        println();
+        flush();
     }
     public void print(String[] a){
-        for(String i:a) System.out.print(i+" ");
+        for(String i:a) print(i+" ");
+        flush();
     }
     public void println(String[] a){
-        for(String i:a) System.out.print(i+" ");System.out.println();
+        for(String i:a) print(i+" ");
+        println();
+        flush();
     }
 }
 
