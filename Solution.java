@@ -164,9 +164,11 @@ class Util{
     }
     public int[] getFrequencyArray(String s){
         int n = 26;
-        for(char c:s.toCharArray()) if(!Character.isLowerCase(c))        {System.out.println("Util.getFrequencyArray(String s) : String is not in all lowercase.");
-        throw new Error("Util.getFrequencyArray(String s) : String is not in all lowercase.");
-                                                                        }
+        for(char c:s.toCharArray()) 
+            if(!Character.isLowerCase(c)){
+                System.out.println("Util.getFrequencyArray(String s) : String is not in all lowercase.");
+                throw new Error("Util.getFrequencyArray(String s) : String is not in all lowercase.");
+            }
         int[] freq = new int[26];
         for(char c:s.toCharArray()) freq[c-'a']++;
         return freq;
