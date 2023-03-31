@@ -1,12 +1,11 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class Solution {
     static int SI=0;
     static void solve(int tc){
-        //...
+        
     }
-
     public static void main(String[] args) {
         if(SI==1) solve(0);
         else{
@@ -93,30 +92,21 @@ class IO extends PrintWriter{
         String ans = peekToken(); token = null;
         return ans;
     }
-    public void print(int[] a){
-        for(int i:a) print(i+" ");
+    public <T> void print(T[] a){
+        for(T i:a) print(i+" ");
         flush();
     }
-    public void println(int[] a){
-        for(int i:a) print(i+" "); 
+    public <T> void println(T[] a){
+        for(T i:a) print(i+" ");
         println();
         flush();
     }
-    public void print(long[] a){
-        for(long i:a) print(i+" ");
+    public <T> void print(List<T> a){
+        for(T i:a) print(i+" ");
         flush();
     }
-    public void println(long[] a){
-        for(long i:a) print(i+" ");
-        println();
-        flush();
-    }
-    public void print(String[] a){
-        for(String i:a) print(i+" ");
-        flush();
-    }
-    public void println(String[] a){
-        for(String i:a) print(i+" ");
+    public <T> void println(List<T> a){
+        for(T i:a) print(i+" ");
         println();
         flush();
     }
@@ -154,7 +144,9 @@ class Util{
         return prime;
     }
     public boolean checkPallen(String s){
-        for(int i=0;i<s.length();i++) if(s.charAt(i)!=s.charAt(s.length()-i-1)) return false;
+        for(int i=0;i<s.length();i++) 
+            if(s.charAt(i)!=s.charAt(s.length()-i-1)) 
+                return false;
         return true;
     }
     public HashMap<Integer, Integer> getOccuranceCountMap(int[] arr){
@@ -168,7 +160,7 @@ class Util{
             if(!Character.isLowerCase(c)){
                 System.out.println("Util.getFrequencyArray(String s) : String is not in all lowercase.");
                 throw new Error("Util.getFrequencyArray(String s) : String is not in all lowercase.");
-            }
+            }                                                        }
         int[] freq = new int[26];
         for(char c:s.toCharArray()) freq[c-'a']++;
         return freq;
