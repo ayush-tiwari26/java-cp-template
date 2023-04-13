@@ -166,3 +166,21 @@ class Util{
         return freq;
     }
 }
+
+class Pair<T1,T2> implements Comparable<Pair>{
+    public T1 a;
+    public T2 b;
+    public Pair(){}
+    public Pair(T1 a, T2 b){
+        this.a=a;
+        this.b=b;
+    }
+    public int compareTo(Pair ob){
+        String s1 = this+"";
+        String s2 = ob+"";
+        return s1.compareTo(s2);
+    }
+    public String toString(){
+        return ("{"+this.a+", "+this.b+"}");
+    }
+}
