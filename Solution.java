@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Solution {
     static int SI=0;
-    static void solve(int tc){
+    static void solve(int tc) {
         
     }
     public static void main(String[] args) {
@@ -107,6 +107,34 @@ class IO extends PrintWriter{
     }
     public <T> void println(List<T> a){
         for(T i:a) print(i+" ");
+        println();
+        flush();
+    }
+    // Primitives
+    public void print(int[] a){
+        for(int i:a) print(i+" ");
+        flush();
+    }
+    public void println(int[] a){
+        for(int i:a) print(i+" "); 
+        println();
+        flush();
+    }
+    public void print(long[] a){
+        for(long i:a) print(i+" ");
+        flush();
+    }
+    public void println(long[] a){
+        for(long i:a) print(i+" ");
+        println();
+        flush();
+    }
+    public void print(String[] a){
+        for(String i:a) print(i+" ");
+        flush();
+    }
+    public void println(String[] a){
+        for(String i:a) print(i+" ");
         println();
         flush();
     }
