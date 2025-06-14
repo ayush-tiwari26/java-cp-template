@@ -18,7 +18,6 @@ public class Solution {
         io.flush();
     }
     static IO io = new IO();
-    static Util ut = new Util();
 }
 
 class IO extends PrintWriter{
@@ -44,15 +43,15 @@ class IO extends PrintWriter{
         return Integer.parseInt(nextToken());
     }
     public int[] nextArray(int n) {
-        int[] a = new int[n]; 
-        for(int i=0;i<n;i++) 
-            a[i]=nextInt(); 
+        int[] a = new int[n];
+        for(int i=0;i<n;i++)
+            a[i]=nextInt();
         return a;
     }
     public int[] nextIntArray(int n) {
-        int[] a = new int[n]; 
-        for(int i=0;i<n;i++) 
-            a[i]=nextInt(); 
+        int[] a = new int[n];
+        for(int i=0;i<n;i++)
+            a[i]=nextInt();
         return a;
     }
     public void nextIntArray(int[] a) {
@@ -65,9 +64,9 @@ class IO extends PrintWriter{
         return Long.parseLong(nextToken());
     }
     public long[] nextLongArray(int n) {
-        long[] a = new long[n]; 
-        for(int i=0;i<n;i++) 
-            a[i]=nextLong(); 
+        long[] a = new long[n];
+        for(int i=0;i<n;i++)
+            a[i]=nextLong();
         return a;
     }
     public String nextString() {
@@ -77,14 +76,14 @@ class IO extends PrintWriter{
         return nextToken();
     }
     public String peekToken(){
-        if (token == null) 
+        if (token == null)
             try {
-            while (st == null || !st.hasMoreTokens()) {
-                String line = bf.readLine();
-                if (line == null) return null;
-                st = new StringTokenizer(line);
-            }
-            token = st.nextToken();
+                while (st == null || !st.hasMoreTokens()) {
+                    String line = bf.readLine();
+                    if (line == null) return null;
+                    st = new StringTokenizer(line);
+                }
+                token = st.nextToken();
             } catch (IOException e) { }
         return token;
     }
@@ -116,7 +115,7 @@ class IO extends PrintWriter{
         flush();
     }
     public void println(int[] a){
-        for(int i:a) print(i+" "); 
+        for(int i:a) print(i+" ");
         println();
         flush();
     }
@@ -138,9 +137,13 @@ class IO extends PrintWriter{
         println();
         flush();
     }
-}
 
-class Util{
+    /* **********Util Methods********* */
+    public long sum(int[] a){
+        long r = 0;
+        for(long i:a) r+=i;
+        return r;
+    }
     public boolean[] getIsPrimeSieve(){
         int n = 1001000;
         boolean[] prime = new boolean[n];
@@ -172,8 +175,8 @@ class Util{
         return prime;
     }
     public boolean checkPallen(String s){
-        for(int i=0;i<s.length();i++) 
-            if(s.charAt(i)!=s.charAt(s.length()-i-1)) 
+        for(int i=0;i<s.length();i++)
+            if(s.charAt(i)!=s.charAt(s.length()-i-1))
                 return false;
         return true;
     }
@@ -184,7 +187,7 @@ class Util{
     }
     public int[] getFrequencyArray(String s){
         int n = 26;
-        for(char c:s.toCharArray()) 
+        for(char c:s.toCharArray())
             if(!Character.isLowerCase(c)){
                 System.out.println("Util.getFrequencyArray(String s) : String is not in all lowercase.");
                 throw new Error("Util.getFrequencyArray(String s) : String is not in all lowercase.");
